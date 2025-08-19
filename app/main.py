@@ -11,11 +11,11 @@ class Validator(ABC):
 
     def __set__(self, obj, value) -> None:
         self.validate(value)
-        return setattr(obj, self.protected_name, value)
+        setattr(obj, self.protected_name, value)
 
     @abstractmethod
     def validate(self, value: any) -> None:
-        return value
+        pass
 
 
 class Number(Validator):
